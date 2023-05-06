@@ -6,6 +6,7 @@ import helmet from "helmet";
 import cors from "cors";
 import morgan from "morgan";
 import compression from "compression";
+import "dotenv/config";
 
 class App {
     public express: Application;
@@ -46,8 +47,10 @@ class App {
     }
 
     private initMongoDbConnection(): void {
-        const uriMongo =
-            "mongodb+srv://mainai:sepoho56@we-love-food.wc41r05.mongodb.net/?retryWrites=true&w=majority";
+        const MONGO_USER = process.env.MONGO_USER;
+        const MONGO_PASS = process.env.MONGO_PASS;
+        const MONGO_PATH = process.env.MONGO_PATH;
+        const uriMongo = `mongodb+srv://${MONGO_USER}:${MONGO_PASS}@${MONGO_PATH}`;
         async function connectToMongo() {
             try {
                 await mongoose.connect(uriMongo);
