@@ -1,9 +1,16 @@
-import express, { Application, Request, Response, NextFunction } from "express";
+import "dotenv/config";
+import App from "./app.js";
+import validateEnv from "./utils/validateEnv.js";
+import PostController from "./resources/post/post.controller.js";
 
-const app: Application = express();
+validateEnv();
 
-app.get("/", (req: Request, res: Response, next: NextFunction) => {
-  res.send("Hello wld");
-});
+const app = new App([new PostController()], Number(process.env.PORT));
 
-app.listen(3000, () => console.log("Server is running"));
+app.listen();
+
+// app.use(
+//     cors({
+//         origin: "http://localhost:4200"
+//     })
+// );
