@@ -10,10 +10,14 @@
     "scripts": {
         "dev": "nodemon src/index.ts",
         "start": "node dist/index.js",
-        "build": "npm-run-all lint format && tsc -p .",
+        "build": "npm-run-all clean compile",
+        "build:run": "npm-run-all build start",
+        "compile": "tsc -p .",
         "lint": "eslint src",
         "format": "npx prettier --write src",
-        "format:check": "npx prettier --check src"
+        "format:check": "npx prettier --check src",
+        "clean:comment": "rimraf = rm -rf dist. To delete dist directory",
+        "clean": "rimraf dist"
     },
     "author": "Ainur Aimurzin",
     "license": "ISC",
@@ -43,6 +47,7 @@
         "joi": "^17.9.2",
         "jsonwebtoken": "^9.0.0",
         "mongoose": "^7.1.0",
-        "morgan": "^1.10.0"
+        "morgan": "^1.10.0",
+        "rimraf": "^5.0.0"
     }
 }
