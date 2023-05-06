@@ -34,6 +34,10 @@ class App {
         //  expects request data to be sent encoded in the URL /Name=Pikachu&Type=Banana&Number+In+Stable=12
         this.express.use(express.urlencoded({ extended: false }));
         this.express.use(compression()); // Для уменьшения размера ответа. Включает Content-Encoding: gzip,
+
+        this.express.get("/hello", (req, res) =>
+            res.json({ answer: "Hello world" })
+        );
     }
 
     private initControllers(controllers: Controller[]): void {
