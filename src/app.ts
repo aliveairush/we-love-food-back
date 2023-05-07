@@ -24,7 +24,7 @@ class App {
 
     private initMiddleware(): void {
         this.express.use(helmet()); // Либа добавляет несколько функций для защиты сервера от известных аттак типа XSS, CSRF
-        this.express.use(cors({ origin: "http://localhost:4200" })); // Разрешаем доступ для клиента
+        this.express.use(cors({ origin: String(process.env.CLIENT_APP) })); // Разрешаем доступ для клиента
         this.express.use(morgan("dev")); // Логер для http запросов. Чтобы видно было какие запросы пришли в удобном формате
 
         // Middleware для парсинга запросов c application/json и засовывает в req.body.
