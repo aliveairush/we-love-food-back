@@ -1,5 +1,4 @@
 # we-love-food-back
 
 ###  Auhtorization login
-https://ibb.co/84JhdTW
-<img src="https://ibb.co/84JhdTW" alt="calculator-js" border="0">
+<img src="https://i.ibb.co/1J3SdhD/Screenshot-4.png" alt="calculator-js" border="0">
