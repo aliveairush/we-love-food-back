@@ -8,7 +8,8 @@
         "node": ">=18"
     },
     "scripts": {
-        "dev": "nodemon src/index.ts",
+        "dev:comment": "--file чтобы можно было использовать кастомные типы для express. Для папки src/@types",
+        "dev": "nodemon --files src/index.ts",
         "start": "node dist/index.js",
         "build": "npm-run-all clean compile",
         "build:run": "npm-run-all build start",
@@ -22,8 +23,10 @@
     "author": "Ainur Aimurzin",
     "license": "ISC",
     "devDependencies": {
+        "@types/bcrypt": "^5.0.0",
         "@types/express": "^4.17.17",
         "@types/helmet": "^4.0.0",
+        "@types/jsonwebtoken": "^9.0.2",
         "@types/node": "^20.0.0",
         "@typescript-eslint/eslint-plugin": "^5.59.2",
         "@typescript-eslint/parser": "^5.59.2",
